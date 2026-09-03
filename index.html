@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="A beautiful wedding invitation website">
+<title>Arjun & Riya — Wedding Invitation</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Noto+Serif+Bengali:wght@400;500;600&display=swap');
+
+:root{
+  --wine:#7a2535; --cream:#fff9f1; --gold:#b78b45; --ink:#2b2020;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:'Cormorant Garamond',serif;font-size:18px}
+a{color:inherit}
+section{padding:90px 20px}
+.container{max-width:1050px;margin:auto}
+.kicker{text-transform:uppercase;letter-spacing:4px;font-size:13px;color:var(--gold);font-weight:600}
+h1,h2,h3{margin:0;font-weight:600}
+h2{font-size:clamp(38px,6vw,58px);margin:10px 0 20px}
+.divider{display:flex;align-items:center;gap:14px;justify-content:center;color:var(--gold);margin:25px 0}
+.divider:before,.divider:after{content:"";height:1px;background:var(--gold);width:80px;opacity:.55}
+
+/* Hero */
+.hero{min-height:100svh;display:grid;place-items:center;text-align:center;padding:40px 20px;position:relative;overflow:hidden;
+background:radial-gradient(circle at 50% 35%,#fffdf8 0,#fff8ee 48%,#f7eadb 100%)}
+.hero:before,.hero:after{content:"";position:absolute;width:240px;height:240px;border:1px solid rgba(183,139,69,.25);border-radius:50%}
+.hero:before{top:-100px;left:-80px}.hero:after{bottom:-110px;right:-90px}
+.hero-inner{position:relative;z-index:1}
+.monogram{font-family:'Great Vibes',cursive;font-size:70px;color:var(--wine);line-height:1;margin-bottom:25px}
+.hero h1{font-size:clamp(58px,12vw,110px);line-height:.88;color:var(--wine)}
+.hero .amp{font-family:'Great Vibes',cursive;color:var(--gold);font-size:.72em}
+.date{font-size:22px;letter-spacing:3px;margin:28px 0 10px}
+.place{font-size:16px;letter-spacing:2px;color:#6d5c55}
+.scroll{margin-top:55px;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--gold)}
+
+/* Intro */
+.intro{text-align:center}
+.intro p{max-width:680px;margin:0 auto;font-size:22px;line-height:1.65}
+.bengali{font-family:'Noto Serif Bengali',serif}
+
+/* Story */
+.story{background:#fff}
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.photo{min-height:430px;border-radius:180px 180px 12px 12px;background:
+linear-gradient(135deg,rgba(122,37,53,.15),rgba(183,139,69,.22)),
+linear-gradient(45deg,#ead8c6,#f8eee4);display:grid;place-items:center;color:#8b756b;text-align:center;padding:30px}
+.photo span{border:1px solid rgba(122,37,53,.25);padding:20px 28px;border-radius:4px;font-size:14px;letter-spacing:2px;text-transform:uppercase}
+.story-copy p{line-height:1.7;font-size:20px}
+
+/* Events */
+.events{text-align:center}
+.event-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:45px}
+.card{background:#fff;padding:38px 22px;border:1px solid rgba(183,139,69,.25);box-shadow:0 10px 35px rgba(70,40,30,.05)}
+.card .icon{font-size:30px;color:var(--gold);margin-bottom:15px}
+.card h3{font-size:30px;color:var(--wine)}
+.card p{line-height:1.55;margin:12px 0 0}
+
+/* Gallery */
+.gallery{background:#fff}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:40px}
+.gallery-photo{aspect-ratio:1/1;background:linear-gradient(135deg,#e8d7ca,#f7eee5);display:grid;place-items:center;color:#8b756b;text-align:center;font-size:13px;letter-spacing:1.5px}
+.gallery-photo:nth-child(2){aspect-ratio:4/5}.gallery-photo:nth-child(5){aspect-ratio:4/5}
+
+/* Countdown */
+.countdown{text-align:center;background:var(--wine);color:#fff9f1}
+.countdown .kicker{color:#e6c68d}
+.countdown h2{color:#fff}
+.timer{display:flex;justify-content:center;gap:clamp(15px,5vw,55px);margin-top:35px}
+.time strong{display:block;font-size:clamp(38px,7vw,65px);font-weight:500}
+.time span{font-size:12px;text-transform:uppercase;letter-spacing:3px;opacity:.8}
+
+/* RSVP */
+.rsvp{text-align:center}
+.rsvp p{font-size:21px;line-height:1.6;max-width:650px;margin:0 auto 30px}
+.btn{display:inline-block;background:var(--wine);color:white;text-decoration:none;padding:15px 32px;border-radius:2px;letter-spacing:2px;text-transform:uppercase;font-size:13px}
+.btn:hover{opacity:.9}
+
+/* Footer */
+footer{text-align:center;padding:45px 20px;background:#f2e3d5;color:#6d5148}
+footer .names{font-family:'Great Vibes',cursive;font-size:40px;color:var(--wine)}
+
+@media(max-width:750px){
+  section{padding:70px 18px}
+  .story-grid{grid-template-columns:1fr;gap:35px}
+  .photo{min-height:330px}
+  .event-grid{grid-template-columns:1fr}
+  .gallery-grid{grid-template-columns:1fr 1fr}
+  .gallery-photo:nth-child(2),.gallery-photo:nth-child(5){aspect-ratio:1/1}
+}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="monogram">A & R</div>
+    <div class="kicker">Together with their families</div>
+    <h1>Arjun <span class="amp">&</span> Riya</h1>
+    <div class="divider">✦</div>
+    <div class="date">21 • DECEMBER • 2026</div>
+    <div class="place">KOLKATA · WEST BENGAL</div>
+    <div class="scroll">Scroll to explore ↓</div>
+  </div>
+</section>
+
+<section class="intro">
+  <div class="container">
+    <div class="kicker">We are getting married</div>
+    <h2>With joyful hearts</h2>
+    <div class="divider">❧</div>
+    <p class="bengali">দুই হৃদয়, এক নতুন পথ — আপনাদের ভালোবাসা ও আশীর্বাদে আমাদের নতুন জীবনের শুরু।</p>
+    <p style="margin-top:20px">We invite you to celebrate the beginning of our forever and make this beautiful day even more special with your presence.</p>
+  </div>
+</section>
+
+<section class="story">
+  <div class="container story-grid">
+    <div class="photo"><span>Replace with couple photo</span></div>
+    <div class="story-copy">
+      <div class="kicker">Our story</div>
+      <h2>A little bit of us</h2>
+      <p>What started with a simple hello became countless conversations, shared dreams and a love we are grateful to call our own.</p>
+      <p>Now, surrounded by the people who mean the most to us, we are ready to begin our next chapter together.</p>
+    </div>
+  </div>
+</section>
+
+<section class="events">
+  <div class="container">
+    <div class="kicker">Save the dates</div>
+    <h2>Wedding Celebrations</h2>
+    <div class="divider">✦</div>
+    <div class="event-grid">
+      <div class="card">
+        <div class="icon">❋</div><h3>Haldi</h3>
+        <p>Saturday, 19 December<br>11:00 AM<br>Family Residence</p>
+      </div>
+      <div class="card">
+        <div class="icon">♡</div><h3>Wedding</h3>
+        <p>Monday, 21 December<br>7:00 PM<br>Royal Bengal Banquet</p>
+      </div>
+      <div class="card">
+        <div class="icon">✦</div><h3>Reception</h3>
+        <p>Tuesday, 22 December<br>7:30 PM<br>Royal Bengal Banquet</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery">
+  <div class="container">
+    <div class="kicker" style="text-align:center">Memories</div>
+    <h2 style="text-align:center">A few moments</h2>
+    <div class="gallery-grid">
+      <div class="gallery-photo">PHOTO 01</div>
+      <div class="gallery-photo">PHOTO 02</div>
+      <div class="gallery-photo">PHOTO 03</div>
+      <div class="gallery-photo">PHOTO 04</div>
+      <div class="gallery-photo">PHOTO 05</div>
+      <div class="gallery-photo">PHOTO 06</div>
+    </div>
+  </div>
+</section>
+
+<section class="countdown">
+  <div class="container">
+    <div class="kicker">Counting down to forever</div>
+    <h2>Our big day is almost here</h2>
+    <div class="timer">
+      <div class="time"><strong id="days">--</strong><span>Days</span></div>
+      <div class="time"><strong id="hours">--</strong><span>Hours</span></div>
+      <div class="time"><strong id="minutes">--</strong><span>Minutes</span></div>
+      <div class="time"><strong id="seconds">--</strong><span>Seconds</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="rsvp">
+  <div class="container">
+    <div class="kicker">We would love to see you</div>
+    <h2>Will you join us?</h2>
+    <p>Please let us know if you'll be celebrating with us. This button can be connected to WhatsApp, Google Forms, or another RSVP service.</p>
+    <a class="btn" href="https://wa.me/919999999999?text=Hi%20Arjun%20%26%20Riya%2C%20we%20would%20love%20to%20attend%20your%20wedding!" target="_blank">RSVP on WhatsApp</a>
+  </div>
+</section>
+
+<footer>
+  <div class="names">Arjun & Riya</div>
+  <div>With love, laughter & happily ever after.</div>
+</footer>
+
+<script>
+const weddingDate = new Date("December 21, 2026 19:00:00").getTime();
+function updateCountdown(){
+  const now = Date.now(), diff = weddingDate - now;
+  if(diff <= 0){
+    document.querySelector(".timer").innerHTML = "<div class='time'><strong>♥</strong><span>Today is the day!</span></div>";
+    return;
+  }
+  document.getElementById("days").textContent = Math.floor(diff/86400000);
+  document.getElementById("hours").textContent = Math.floor(diff%86400000/3600000);
+  document.getElementById("minutes").textContent = Math.floor(diff%3600000/60000);
+  document.getElementById("seconds").textContent = Math.floor(diff%60000/1000);
+}
+updateCountdown(); setInterval(updateCountdown,1000);
+</script>
+</body>
+</html>
